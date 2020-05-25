@@ -1,5 +1,6 @@
 package online.kehan.conect.gateway.web.rest;
 
+import online.kehan.conect.gateway.RedisTestContainerExtension;
 import online.kehan.conect.gateway.ConnectGatewayApp;
 import online.kehan.conect.gateway.config.TestSecurityConfiguration;
 import online.kehan.conect.gateway.security.AuthoritiesConstants;
@@ -37,6 +38,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WithMockUser(value = TEST_USER_LOGIN)
 @SpringBootTest(classes = {ConnectGatewayApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 public class AccountResourceIT {
 
     static final String TEST_USER_LOGIN = "test";

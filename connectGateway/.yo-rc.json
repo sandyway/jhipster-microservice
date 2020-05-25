@@ -1,9 +1,9 @@
 {
   "generator-jhipster": {
     "authenticationType": "oauth2",
-    "cacheProvider": "ehcache",
+    "cacheProvider": "redis",
     "clientFramework": "react",
-    "serverPort": "8000",
+    "serverPort": "10000",
     "serviceDiscoveryType": "eureka",
     "skipUserManagement": true,
     "baseName": "connectGateway",

@@ -4,7 +4,15 @@
     "gatewayType": "zuul",
     "monitoring": "no",
     "directoryPath": "../",
-    "appsFolders": ["connectGateway", "analyticCollectionService"],
+    "appsFolders": [
+      "connectGateway",
+      "analyticCollectionService",
+      "analyticQueryService",
+      "campaignService",
+      "connectorService",
+      "flowService",
+      "reminderService"
+    ],
     "clusteredDbApps": [],
     "consoleOptions": [],
     "serviceDiscoveryType": "eureka",

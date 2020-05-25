@@ -10,6 +10,10 @@
     <modules>
         <module>connectGateway</module>
         <module>analyticCollectionService</module>
-        <!-- <module>store</module> -->
+        <module>analyticQueryService</module>
+        <module>campaignService</module>
+        <module>connectorService</module>
+        <module>flowService</module>
+        <module>reminderService</module>
     </modules>
 </project>

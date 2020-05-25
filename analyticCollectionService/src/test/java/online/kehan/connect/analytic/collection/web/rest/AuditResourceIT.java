@@ -1,6 +1,7 @@
 package online.kehan.connect.analytic.collection.web.rest;
 
 import online.kehan.connect.analytic.collection.AnalyticCollectionServiceApp;
+import online.kehan.connect.analytic.collection.RedisTestContainerExtension;
 import online.kehan.connect.analytic.collection.config.TestSecurityConfiguration;
 import online.kehan.connect.analytic.collection.domain.PersistentAuditEvent;
 import online.kehan.connect.analytic.collection.repository.PersistenceAuditEventRepository;
@@ -8,6 +9,7 @@ import online.kehan.connect.analytic.collection.security.AuthoritiesConstants;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,6 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 @SpringBootTest(classes = {AnalyticCollectionServiceApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 @Transactional
 public class AuditResourceIT {
 

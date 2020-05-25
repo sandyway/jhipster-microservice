@@ -91,9 +91,9 @@ application {
     packageName online.kehan.conect.gateway
     applicationType gateway
     baseName connectGateway
-    serverPort 8000
+    serverPort 10000
     authenticationType oauth2
-    // cacheProvider redis
+    cacheProvider redis
     enableHibernateCache true
     websocket false
     databaseType sql
@@ -123,7 +123,7 @@ application {
     baseName analyticCollectionService,
     serverPort 8004,
     authenticationType oauth2,
-    // cacheProvider redis,
+    cacheProvider redis,
     enableHibernateCache true,
     websocket false,
     databaseType sql,
@@ -143,111 +143,156 @@ application {
   }
   entities ConnectEvent
 }
-// application {
-//   config {
-//     packageName online.kehan.connect.analytic.query,      
-//     applicationType microservice,
-//     baseName analyticQueryService,
-//     serverPort 8005,
-//     authenticationType oauth2,
-//     // cacheProvider redis,
-//     enableHibernateCache true,
-//     websocket false,
-//     databaseType sql,
-//     devDatabaseType postgresql,
-//     prodDatabaseType postgresql,
-//     searchEngine false,
-//     messageBroker false,
-//     serviceDiscoveryType eureka,
-//     buildTool maven,
-//     enableSwaggerCodegen false,
-//     testFrameworks [],
-//     clientPackageManager npm,
-//     nativeLanguage en,
-//     languages [en, zh-cn, zh-tw],
-//     skipClient true,
-//     skipUserManagement true
-//   }
-//   entities Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow
-// }
-// application {
-//   config {
-//     promptValues {
-//       packageName online.kehan.connect.campaign,
-//       nativeLanguage en
-//     },
-//     jhipsterVersion 6.9.0,
-//     applicationType microservice,
-//     baseName campaignService,
-//     packageName online.kehan.connect.campaign,
-//     packageFolder online/kehan/connect/campaign,
-//     serverPort 8005,
-//     authenticationType oauth2,
-//     cacheProvider redis,
-//     enableHibernateCache true,
-//     websocket false,
-//     databaseType sql,
-//     devDatabaseType postgresql,
-//     prodDatabaseType postgresql,
-//     searchEngine false,
-//     messageBroker false,
-//     serviceDiscoveryType eureka,
-//     buildTool maven,
-//     enableSwaggerCodegen false,
-//     jwtSecretKey MzIzNDQ3MzYyOGU3OTVlZTQxZjljZDFjYTI2N2I1MTk0ZmI2OTQ4MzU3MmM4YjEyZjMwNDZmYTU1ZGY0NTg3Mzk4YzA5MmViYjdhNGQxNDk1OGQwYzM0MmE3YzkwMGMyZGE1ZjRmMjVhMDlkODc3MDE1NmUwYjYzMmNhMzE4MWY=,
-//     embeddableLaunchScript false,
-//     creationTimestamp 1590127233872,
-//     testFrameworks [],
-//     jhiPrefix jhi,
-//     entitySuffix ,
-//     dtoSuffix DTO,
-//     otherModules [],
-//     enableTranslation true,
-//     clientPackageManager npm,
-//     nativeLanguage en,
-//     languages [en, zh-cn, zh-tw],
-//     blueprints [],
-//     skipClient true,
-//     skipUserManagement true
-//   }
-//   entities TemplateFlow, CampaignFlow, Intent, Event, Campaign, Recipient
-// }
-// entity Blog {
-//   name String required minlength(3),
-//   handle String required minlength(2)
-// }
-// entity Post {
-//   title String required,
-//   content TextBlob required,
-//   date Instant required
-// }
-// entity Tag {
-//   name String required minlength(2)
-// }
-// entity Product {
-//   title String required,
-//   price BigDecimal required min(0),
-//   image ImageBlob
-// }
-// relationship ManyToOne {
-//   Blog{user(login)} to User,
-//   Post{blog(name)} to Blog
-// }
-// relationship ManyToMany {
-//   Post{tag(name)} to Tag{post}
-// }
+application {
+  config {
+    packageName online.kehan.connect.analytic.query,      
+    applicationType microservice,
+    baseName analyticQueryService,
+    serverPort 8005,
+    authenticationType oauth2,
+    cacheProvider redis,
+    enableHibernateCache true,
+    websocket false,
+    databaseType sql,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    searchEngine false,
+    messageBroker false,
+    serviceDiscoveryType eureka,
+    buildTool maven,
+    enableSwaggerCodegen false,
+    testFrameworks [],
+    clientPackageManager npm,
+    nativeLanguage en,
+    languages [en, zh-cn, zh-tw],
+    skipClient true,
+    skipUserManagement true
+  }
+  entities TemplateFlow, CampaignFlow, ConnectIntent, ConnectEvent, Campaign, Recipient
+}
+application {
+  config {
+    packageName online.kehan.connect.campaign,      
+    applicationType microservice,
+    baseName campaignService,
+    serverPort 8005,
+    authenticationType oauth2,
+    cacheProvider redis,
+    enableHibernateCache true,
+    websocket false,
+    databaseType sql,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    searchEngine false,
+    messageBroker false,
+    serviceDiscoveryType eureka,
+    buildTool maven,
+    enableSwaggerCodegen false,
+    testFrameworks [],
+    clientPackageManager npm,
+    nativeLanguage en,
+    languages [en, zh-cn, zh-tw],
+    skipClient true,
+    skipUserManagement true
+  }
+  entities Campaign, Recipient
+}
+application {
+  config {
+    packageName online.kehan.connect.connector,      
+    applicationType microservice,
+    baseName connectorService,
+    serverPort 8000,
+    authenticationType oauth2,
+    cacheProvider redis,
+    enableHibernateCache true,
+    websocket false,
+    databaseType sql,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    searchEngine false,
+    messageBroker false,
+    serviceDiscoveryType eureka,
+    buildTool maven,
+    enableSwaggerCodegen false,
+    testFrameworks [],
+    clientPackageManager npm,
+    nativeLanguage en,
+    languages [en, zh-cn, zh-tw],
+    skipClient true,
+    skipUserManagement true
+  }
+  entities ConnectState, ConnectConfig
+}
+application {
+  config {
+    packageName online.kehan.connect.flow,      
+    applicationType microservice,
+    baseName flowService,
+    serverPort 8001,
+    authenticationType oauth2,
+    cacheProvider redis,
+    enableHibernateCache true,
+    websocket false,
+    databaseType sql,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    searchEngine false,
+    messageBroker false,
+    serviceDiscoveryType eureka,
+    buildTool maven,
+    enableSwaggerCodegen false,
+    testFrameworks [],
+    clientPackageManager npm,
+    nativeLanguage en,
+    languages [en, zh-cn, zh-tw],
+    skipClient true,
+    skipUserManagement true
+  }
+  entities CampaignFlow, ConnectIntent, TemplateFlow
+}
+application {
+  config {
+    packageName online.kehan.connect.reminder,      
+    applicationType microservice,
+    baseName reminderService,
+    serverPort 8003,
+    authenticationType oauth2,
+    cacheProvider redis,
+    enableHibernateCache true,
+    websocket false,
+    databaseType sql,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    searchEngine false,
+    messageBroker false,
+    serviceDiscoveryType eureka,
+    buildTool maven,
+    enableSwaggerCodegen false,
+    testFrameworks [],
+    clientPackageManager npm,
+    nativeLanguage en,
+    languages [en, zh-cn, zh-tw],
+    skipClient true,
+    skipUserManagement true
+  }
+  entities Reminder
+}
 paginate * with infinite-scroll
 paginate * with pagination
 service * with serviceClass
 microservice Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow with connectGateway
 microservice ConnectEvent with analyticCollectionService
+microservice TemplateFlow, CampaignFlow, ConnectIntent, ConnectEvent, Campaign, Recipient with analyticQueryService
+microservice Campaign, Recipient with campaignService
+microservice ConnectState, ConnectConfig with connectorService
+microservice CampaignFlow, ConnectIntent, TemplateFlow with flowService
+microservice Reminder with reminderService
 
-// microservice Product with store
-// microservice Blog, Post, Tag with blog
 // will be created under 'docker-compose' folder
 deployment {
   deploymentType docker-compose
-  appsFolders [connectGateway, analyticCollectionService]
+  appsFolders [connectGateway, analyticCollectionService, analyticQueryService, campaignService, connectorService, flowService, reminderService]
   dockerRepositoryName "sandyway"
   consoleOptions [zipkin]
 }

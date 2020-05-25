@@ -1,5 +1,6 @@
 package online.kehan.conect.gateway.service;
 
+import online.kehan.conect.gateway.RedisTestContainerExtension;
 import online.kehan.conect.gateway.ConnectGatewayApp;
 import online.kehan.conect.gateway.config.Constants;
 import online.kehan.conect.gateway.config.TestSecurityConfiguration;
@@ -10,6 +11,7 @@ import online.kehan.conect.gateway.service.dto.UserDTO;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
@@ -33,6 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Integration tests for {@link UserService}.
  */
 @SpringBootTest(classes = {ConnectGatewayApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 @Transactional
 public class UserServiceIT {
 

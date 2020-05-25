@@ -1,19 +1,5 @@
 package online.kehan.connect.analytic.collection.config;
 
-import io.github.jhipster.config.JHipsterConstants;
-import io.github.jhipster.config.JHipsterProperties;
-
-import com.hazelcast.config.*;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.Hazelcast;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import org.springframework.boot.autoconfigure.web.ServerProperties;
-
-import org.springframework.cache.CacheManager;
-
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -24,10 +10,22 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.context.annotation.*;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
+import org.redisson.Redisson;
+import org.redisson.config.Config;
+import org.redisson.jcache.configuration.RedissonConfiguration;
+import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
+import org.hibernate.cache.jcache.ConfigSettings;
 
-import javax.annotation.PreDestroy;
+import java.util.concurrent.TimeUnit;
+
+import javax.cache.configuration.MutableConfiguration;
+import javax.cache.expiry.CreatedExpiryPolicy;
+import javax.cache.expiry.Duration;
+
+import io.github.jhipster.config.JHipsterProperties;
 
 @Configuration
 @EnableCaching
@@ -35,130 +33,55 @@ public class CacheConfiguration {
     private GitProperties gitProperties;
     private BuildProperties buildProperties;
 
-    private final Logger log = LoggerFactory.getLogger(CacheConfiguration.class);
-
-    private final Environment env;
-
-    private final ServerProperties serverProperties;
-
-    private final DiscoveryClient discoveryClient;
-
-    private Registration registration;
-
-    public CacheConfiguration(Environment env, ServerProperties serverProperties, DiscoveryClient discoveryClient) {
-        this.env = env;
-        this.serverProperties = serverProperties;
-        this.discoveryClient = discoveryClient;
-    }
-
-    @Autowired(required = false)
-    public void setRegistration(Registration registration) {
-        this.registration = registration;
-    }
-
-    @PreDestroy
-    public void destroy() {
-        log.info("Closing Cache Manager");
-        Hazelcast.shutdownAll();
-    }
-
     @Bean
-    public CacheManager cacheManager(HazelcastInstance hazelcastInstance) {
-        log.debug("Starting HazelcastCacheManager");
-        return new com.hazelcast.spring.cache.HazelcastCacheManager(hazelcastInstance);
-    }
-
-    @Bean
-    public HazelcastInstance hazelcastInstance(JHipsterProperties jHipsterProperties) {
-        log.debug("Configuring Hazelcast");
-        HazelcastInstance hazelCastInstance = Hazelcast.getHazelcastInstanceByName("analyticCollectionService");
-        if (hazelCastInstance != null) {
-            log.debug("Hazelcast already initialized");
-            return hazelCastInstance;
-        }
+    public javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration(JHipsterProperties jHipsterProperties) {
+        MutableConfiguration<Object, Object> jcacheConfig = new MutableConfiguration<>();
         Config config = new Config();
-        config.setInstanceName("analyticCollectionService");
-        config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
-        if (this.registration == null) {
-            log.warn("No discovery service is set up, Hazelcast cannot create a cluster.");
+        if (jHipsterProperties.getCache().getRedis().isCluster()) {
+            config.useClusterServers().addNodeAddress(jHipsterProperties.getCache().getRedis().getServer());
         } else {
-            // The serviceId is by default the application's name,
-            // see the "spring.application.name" standard Spring property
-            String serviceId = registration.getServiceId();
-            log.debug("Configuring Hazelcast clustering for instanceId: {}", serviceId);
-            // In development, everything goes through 127.0.0.1, with a different port
-            if (env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT))) {
-                log.debug("Application is running with the \"dev\" profile, Hazelcast " +
-                          "cluster will only work with localhost instances");
-
-                System.setProperty("hazelcast.local.localAddress", "127.0.0.1");
-                config.getNetworkConfig().setPort(serverProperties.getPort() + 5701);
-                config.getNetworkConfig().getJoin().getTcpIpConfig().setEnabled(true);
-                for (ServiceInstance instance : discoveryClient.getInstances(serviceId)) {
-                    String clusterMember = "127.0.0.1:" + (instance.getPort() + 5701);
-                    log.debug("Adding Hazelcast (dev) cluster member {}", clusterMember);
-                    config.getNetworkConfig().getJoin().getTcpIpConfig().addMember(clusterMember);
-                }
-            } else { // Production configuration, one host per instance all using port 5701
-                config.getNetworkConfig().setPort(5701);
-                config.getNetworkConfig().getJoin().getTcpIpConfig().setEnabled(true);
-                for (ServiceInstance instance : discoveryClient.getInstances(serviceId)) {
-                    String clusterMember = instance.getHost() + ":5701";
-                    log.debug("Adding Hazelcast (prod) cluster member {}", clusterMember);
-                    config.getNetworkConfig().getJoin().getTcpIpConfig().addMember(clusterMember);
-                }
-            }
+            config.useSingleServer().setAddress(jHipsterProperties.getCache().getRedis().getServer()[0]);
         }
-        config.getMapConfigs().put("default", initializeDefaultMapConfig(jHipsterProperties));
-
-        // Full reference is available at: https://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
-        config.setManagementCenterConfig(initializeDefaultManagementCenterConfig(jHipsterProperties));
-        config.getMapConfigs().put("online.kehan.connect.analytic.collection.domain.*", initializeDomainMapConfig(jHipsterProperties));
-        return Hazelcast.newHazelcastInstance(config);
+        jcacheConfig.setStatisticsEnabled(true);
+        jcacheConfig.setExpiryPolicyFactory(CreatedExpiryPolicy.factoryOf(new Duration(TimeUnit.SECONDS, jHipsterProperties.getCache().getRedis().getExpiration())));
+        return RedissonConfiguration.fromInstance(Redisson.create(config), jcacheConfig);
     }
 
-    private ManagementCenterConfig initializeDefaultManagementCenterConfig(JHipsterProperties jHipsterProperties) {
-        ManagementCenterConfig managementCenterConfig = new ManagementCenterConfig();
-        managementCenterConfig.setEnabled(jHipsterProperties.getCache().getHazelcast().getManagementCenter().isEnabled());
-        managementCenterConfig.setUrl(jHipsterProperties.getCache().getHazelcast().getManagementCenter().getUrl());
-        managementCenterConfig.setUpdateInterval(jHipsterProperties.getCache().getHazelcast().getManagementCenter().getUpdateInterval());
-        return managementCenterConfig;
+    @Bean
+    public HibernatePropertiesCustomizer hibernatePropertiesCustomizer(javax.cache.CacheManager cm) {
+        return hibernateProperties -> hibernateProperties.put(ConfigSettings.CACHE_MANAGER, cm);
     }
 
-    private MapConfig initializeDefaultMapConfig(JHipsterProperties jHipsterProperties) {
-        MapConfig mapConfig = new MapConfig();
-
-        /*
-        Number of backups. If 1 is set as the backup-count for example,
-        then all entries of the map will be copied to another JVM for
-        fail-safety. Valid numbers are 0 (no backup), 1, 2, 3.
-        */
-        mapConfig.setBackupCount(jHipsterProperties.getCache().getHazelcast().getBackupCount());
-
-        /*
-        Valid values are:
-        NONE (no eviction),
-        LRU (Least Recently Used),
-        LFU (Least Frequently Used).
-        NONE is the default.
-        */
-        mapConfig.setEvictionPolicy(EvictionPolicy.LRU);
-
-        /*
-        Maximum size of the map. When max size is reached,
-        map is evicted based on the policy defined.
-        Any integer between 0 and Integer.MAX_VALUE. 0 means
-        Integer.MAX_VALUE. Default is 0.
-        */
-        mapConfig.setMaxSizeConfig(new MaxSizeConfig(0, MaxSizeConfig.MaxSizePolicy.USED_HEAP_SIZE));
-
-        return mapConfig;
+    @Bean
+    public JCacheManagerCustomizer cacheManagerCustomizer(javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration) {
+        return cm -> {
+            createCache(cm, online.kehan.connect.analytic.collection.repository.UserRepository.USERS_BY_LOGIN_CACHE, jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.User.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.Authority.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.Campaign.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.CampaignFlow.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.Config.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.Event.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.Intent.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.Recipient.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.Reminder.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.State.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.TemplateFlow.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.ConnectConfig.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.ConnectEvent.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.ConnectIntent.class.getName(), jcacheConfiguration);
+            createCache(cm, online.kehan.connect.analytic.collection.domain.ConnectState.class.getName(), jcacheConfiguration);
+            // jhipster-needle-redis-add-entry
+        };
     }
 
-    private MapConfig initializeDomainMapConfig(JHipsterProperties jHipsterProperties) {
-        MapConfig mapConfig = new MapConfig();
-        mapConfig.setTimeToLiveSeconds(jHipsterProperties.getCache().getHazelcast().getTimeToLiveSeconds());
-        return mapConfig;
+    private void createCache(javax.cache.CacheManager cm, String cacheName, javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration) {
+        javax.cache.Cache<Object, Object> cache = cm.getCache(cacheName);
+        if (cache == null) {
+            cm.createCache(cacheName, jcacheConfiguration);
+        }
     }
 
     @Autowired(required = false)

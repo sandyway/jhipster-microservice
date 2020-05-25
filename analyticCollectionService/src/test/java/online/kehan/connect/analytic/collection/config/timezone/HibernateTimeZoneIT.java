@@ -1,11 +1,13 @@
 package online.kehan.connect.analytic.collection.config.timezone;
 
 import online.kehan.connect.analytic.collection.AnalyticCollectionServiceApp;
+import online.kehan.connect.analytic.collection.RedisTestContainerExtension;
 import online.kehan.connect.analytic.collection.config.TestSecurityConfiguration;
 import online.kehan.connect.analytic.collection.repository.timezone.DateTimeWrapper;
 import online.kehan.connect.analytic.collection.repository.timezone.DateTimeWrapperRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Integration tests for the UTC Hibernate configuration.
  */
 @SpringBootTest(classes = {AnalyticCollectionServiceApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 public class HibernateTimeZoneIT {
 
     @Autowired

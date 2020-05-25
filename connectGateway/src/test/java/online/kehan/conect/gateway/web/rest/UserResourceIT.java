@@ -1,5 +1,6 @@
 package online.kehan.conect.gateway.web.rest;
 
+import online.kehan.conect.gateway.RedisTestContainerExtension;
 import online.kehan.conect.gateway.ConnectGatewayApp;
 import online.kehan.conect.gateway.config.TestSecurityConfiguration;
 import online.kehan.conect.gateway.domain.Authority;
@@ -11,6 +12,7 @@ import online.kehan.conect.gateway.service.mapper.UserMapper;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,6 +40,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 @SpringBootTest(classes = {ConnectGatewayApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 public class UserResourceIT {
 
     private static final String DEFAULT_LOGIN = "johndoe";

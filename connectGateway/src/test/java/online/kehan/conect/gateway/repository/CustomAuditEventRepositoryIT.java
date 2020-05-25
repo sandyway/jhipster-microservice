@@ -2,12 +2,14 @@ package online.kehan.conect.gateway.repository;
 
 import online.kehan.conect.gateway.ConnectGatewayApp;
 
+import online.kehan.conect.gateway.RedisTestContainerExtension;
 import online.kehan.conect.gateway.config.Constants;
 import online.kehan.conect.gateway.config.TestSecurityConfiguration;
 import online.kehan.conect.gateway.config.audit.AuditEventConverter;
 import online.kehan.conect.gateway.domain.PersistentAuditEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +32,7 @@ import static online.kehan.conect.gateway.repository.CustomAuditEventRepository.
  * Integration tests for {@link CustomAuditEventRepository}.
  */
 @SpringBootTest(classes = {ConnectGatewayApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 @Transactional
 public class CustomAuditEventRepositoryIT {
 

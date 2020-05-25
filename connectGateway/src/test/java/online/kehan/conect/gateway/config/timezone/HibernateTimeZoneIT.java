@@ -1,11 +1,13 @@
 package online.kehan.conect.gateway.config.timezone;
 
 import online.kehan.conect.gateway.ConnectGatewayApp;
+import online.kehan.conect.gateway.RedisTestContainerExtension;
 import online.kehan.conect.gateway.config.TestSecurityConfiguration;
 import online.kehan.conect.gateway.repository.timezone.DateTimeWrapper;
 import online.kehan.conect.gateway.repository.timezone.DateTimeWrapperRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Integration tests for the UTC Hibernate configuration.
  */
 @SpringBootTest(classes = {ConnectGatewayApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 public class HibernateTimeZoneIT {
 
     @Autowired

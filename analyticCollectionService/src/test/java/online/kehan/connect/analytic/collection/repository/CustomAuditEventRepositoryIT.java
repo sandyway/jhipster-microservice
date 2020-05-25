@@ -2,12 +2,14 @@ package online.kehan.connect.analytic.collection.repository;
 
 import online.kehan.connect.analytic.collection.AnalyticCollectionServiceApp;
 
+import online.kehan.connect.analytic.collection.RedisTestContainerExtension;
 import online.kehan.connect.analytic.collection.config.Constants;
 import online.kehan.connect.analytic.collection.config.TestSecurityConfiguration;
 import online.kehan.connect.analytic.collection.config.audit.AuditEventConverter;
 import online.kehan.connect.analytic.collection.domain.PersistentAuditEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +32,7 @@ import static online.kehan.connect.analytic.collection.repository.CustomAuditEve
  * Integration tests for {@link CustomAuditEventRepository}.
  */
 @SpringBootTest(classes = {AnalyticCollectionServiceApp.class, TestSecurityConfiguration.class})
+@ExtendWith(RedisTestContainerExtension.class)
 @Transactional
 public class CustomAuditEventRepositoryIT {
 
