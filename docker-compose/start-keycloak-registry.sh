@@ -1,0 +1,1 @@
+docker-compose -f keycloak-registry.yml up -d --remove-orphans
