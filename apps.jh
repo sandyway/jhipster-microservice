@@ -141,22 +141,16 @@ application {
     skipClient true,
     skipUserManagement true
   }
-  entities Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow
+  entities ConnectEvent
 }
 // application {
 //   config {
-//     promptValues {
-//       packageName online.kehan.connect.analytic.query,
-//       nativeLanguage en
-//     },
-//     jhipsterVersion 6.9.0,
+//     packageName online.kehan.connect.analytic.query,      
 //     applicationType microservice,
 //     baseName analyticQueryService,
-//     packageName online.kehan.connect.analytic.query,
-//     packageFolder online/kehan/connect/analytic/query,
 //     serverPort 8005,
 //     authenticationType oauth2,
-//     cacheProvider redis,
+//     // cacheProvider redis,
 //     enableHibernateCache true,
 //     websocket false,
 //     databaseType sql,
@@ -167,23 +161,14 @@ application {
 //     serviceDiscoveryType eureka,
 //     buildTool maven,
 //     enableSwaggerCodegen false,
-//     jwtSecretKey MzIzNDQ3MzYyOGU3OTVlZTQxZjljZDFjYTI2N2I1MTk0ZmI2OTQ4MzU3MmM4YjEyZjMwNDZmYTU1ZGY0NTg3Mzk4YzA5MmViYjdhNGQxNDk1OGQwYzM0MmE3YzkwMGMyZGE1ZjRmMjVhMDlkODc3MDE1NmUwYjYzMmNhMzE4MWY=,
-//     embeddableLaunchScript false,
-//     creationTimestamp 1590127233872,
 //     testFrameworks [],
-//     jhiPrefix jhi,
-//     entitySuffix ,
-//     dtoSuffix DTO,
-//     otherModules [],
-//     enableTranslation true,
 //     clientPackageManager npm,
 //     nativeLanguage en,
 //     languages [en, zh-cn, zh-tw],
-//     blueprints [],
 //     skipClient true,
 //     skipUserManagement true
 //   }
-//   entities TemplateFlow, CampaignFlow, Intent, Event, Campaign, Recipient
+//   entities Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow
 // }
 // application {
 //   config {
@@ -255,7 +240,8 @@ paginate * with infinite-scroll
 paginate * with pagination
 service * with serviceClass
 microservice Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow with connectGateway
-microservice Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow with analyticCollectionService
+microservice ConnectEvent with analyticCollectionService
+
 // microservice Product with store
 // microservice Blog, Post, Tag with blog
 // will be created under 'docker-compose' folder
