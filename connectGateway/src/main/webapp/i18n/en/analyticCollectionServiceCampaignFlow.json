@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceCampaignFlow": {
+      "home": {
+        "title": "Campaign Flows",
+        "createLabel": "Create a new Campaign Flow",
+        "createOrEditLabel": "Create or edit a Campaign Flow",
+        "notFound": "No Campaign Flows found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Campaign Flow {{ id }}?"
+      },
+      "detail": {
+        "title": "Campaign Flow"
+      },
+      "campaignId": "Campaign Id",
+      "templateFlowId": "Template Flow Id",
+      "createdDate": "Created Date",
+      "createdBy": "Created By"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceCampaignFlow": {
+      "created": "A new Campaign Flow is created with identifier {{ param }}",
+      "updated": "A Campaign Flow is updated with identifier {{ param }}",
+      "deleted": "A Campaign Flow is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceTemplateFlow": {
+      "home": {
+        "title": "Template Flows",
+        "createLabel": "Create a new Template Flow",
+        "createOrEditLabel": "Create or edit a Template Flow",
+        "notFound": "No Template Flows found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Template Flow {{ id }}?"
+      },
+      "detail": {
+        "title": "Template Flow"
+      },
+      "connectDetails": "Connect Details",
+      "userId": "User Id",
+      "createdBy": "Created By",
+      "createdDate": "Created Date"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceTemplateFlow": {
+      "created": "A new Template Flow is created with identifier {{ param }}",
+      "updated": "A Template Flow is updated with identifier {{ param }}",
+      "deleted": "A Template Flow is deleted with identifier {{ param }}"
+    }
+  }
+}

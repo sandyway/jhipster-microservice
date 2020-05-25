@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceRecipient": {
+      "home": {
+        "title": "Recipients",
+        "createLabel": "建立一筆新的 Recipient",
+        "createOrEditLabel": "建立或編輯 Recipient",
+        "notFound": "No Recipients found"
+      },
+      "delete": {
+        "question": "您確定要刪除 Recipient {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Recipient"
+      },
+      "campaignId": "Campaign Id",
+      "ref": "Ref",
+      "connectDetails": "Connect Details",
+      "createdDate": "Created Date"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceRecipient": {
+      "created": "新的 Recipient 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Recipient 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Recipient 刪除成功"
+    }
+  }
+}

@@ -1,0 +1,267 @@
+entity Campaign {
+  id String
+  campaignDetails TextBlob required
+  campaignType String required
+  startDate ZonedDateTime
+  endDate ZonedDateTime
+  createdBy String required
+  createdDate ZonedDateTime required
+}
+entity CampaignFlow {
+  id String
+  campaignId String required
+  templateFlowId String
+  createdDate ZonedDateTime
+  createdBy String
+}
+entity ConnectConfig {
+  userId String required
+  facebook TextBlob
+  viber TextBlob
+  createdDate ZonedDateTime
+}
+entity ConnectEvent {
+  id String
+  analyticId String required
+  connectEvent TextBlob
+  reference TextBlob
+  createdDate ZonedDateTime
+}
+entity ConnectIntent {
+  id String
+  intentId String required
+  flowId String
+  connectChannel String required
+  description String
+  connectType String required
+  messages TextBlob required
+  reminder TextBlob
+  createdDate ZonedDateTime required
+  updatedDate ZonedDateTime
+  createdBy String required
+}
+entity Recipient {
+  id String
+    campaignId String
+    ref String
+    connectDetails TextBlob required
+    createdDate ZonedDateTime required
+}
+entity Redirect {
+  id String
+    campaignId String
+    ref String
+    url String
+    postback String
+    createdDate ZonedDateTime required
+}
+entity Reminder {
+  id String
+    recipientId String required
+    campaignId String required
+    intentId String required
+    channel String required
+    connectDetails TextBlob required
+    done Boolean required
+    executions Integer required
+    createdDate ZonedDateTime required
+    updatedDate ZonedDateTime
+}
+entity ConnectState {
+  id String
+  campaignId String required
+  recipientId String required
+  connectDetails TextBlob required
+  channel String required
+  intentId String
+  intentType String
+  connectEvent TextBlob
+  createdDate ZonedDateTime required
+  updatedDate ZonedDateTime
+}
+entity TemplateFlow {
+  id String
+    connectDetails TextBlob required
+    userId String required
+    createdBy String required
+    createdDate ZonedDateTime
+}
+application {
+  config {    
+    packageName online.kehan.conect.gateway
+    applicationType gateway
+    baseName connectGateway
+    serverPort 8000
+    authenticationType oauth2
+    // cacheProvider redis
+    enableHibernateCache true
+    websocket false
+    databaseType sql
+    devDatabaseType postgresql
+    prodDatabaseType postgresql
+    searchEngine false
+    messageBroker false
+    serviceDiscoveryType eureka
+    buildTool maven
+    enableSwaggerCodegen false
+    useSass true
+    clientPackageManager npm
+    clientFramework react
+    testFrameworks []
+    jhiPrefix jhi
+    dtoSuffix DTO
+    enableTranslation true
+    nativeLanguage en
+    languages [en, zh-cn, zh-tw]
+  }
+  entities Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow
+}
+application {
+  config {
+    packageName online.kehan.connect.analytic.collection,      
+    applicationType microservice,
+    baseName analyticCollectionService,
+    serverPort 8004,
+    authenticationType oauth2,
+    // cacheProvider redis,
+    enableHibernateCache true,
+    websocket false,
+    databaseType sql,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    searchEngine false,
+    messageBroker false,
+    serviceDiscoveryType eureka,
+    buildTool maven,
+    enableSwaggerCodegen false,
+    testFrameworks [],
+    clientPackageManager npm,
+    nativeLanguage en,
+    languages [en, zh-cn, zh-tw],
+    skipClient true,
+    skipUserManagement true
+  }
+  entities Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow
+}
+// application {
+//   config {
+//     promptValues {
+//       packageName online.kehan.connect.analytic.query,
+//       nativeLanguage en
+//     },
+//     jhipsterVersion 6.9.0,
+//     applicationType microservice,
+//     baseName analyticQueryService,
+//     packageName online.kehan.connect.analytic.query,
+//     packageFolder online/kehan/connect/analytic/query,
+//     serverPort 8005,
+//     authenticationType oauth2,
+//     cacheProvider redis,
+//     enableHibernateCache true,
+//     websocket false,
+//     databaseType sql,
+//     devDatabaseType postgresql,
+//     prodDatabaseType postgresql,
+//     searchEngine false,
+//     messageBroker false,
+//     serviceDiscoveryType eureka,
+//     buildTool maven,
+//     enableSwaggerCodegen false,
+//     jwtSecretKey MzIzNDQ3MzYyOGU3OTVlZTQxZjljZDFjYTI2N2I1MTk0ZmI2OTQ4MzU3MmM4YjEyZjMwNDZmYTU1ZGY0NTg3Mzk4YzA5MmViYjdhNGQxNDk1OGQwYzM0MmE3YzkwMGMyZGE1ZjRmMjVhMDlkODc3MDE1NmUwYjYzMmNhMzE4MWY=,
+//     embeddableLaunchScript false,
+//     creationTimestamp 1590127233872,
+//     testFrameworks [],
+//     jhiPrefix jhi,
+//     entitySuffix ,
+//     dtoSuffix DTO,
+//     otherModules [],
+//     enableTranslation true,
+//     clientPackageManager npm,
+//     nativeLanguage en,
+//     languages [en, zh-cn, zh-tw],
+//     blueprints [],
+//     skipClient true,
+//     skipUserManagement true
+//   }
+//   entities TemplateFlow, CampaignFlow, Intent, Event, Campaign, Recipient
+// }
+// application {
+//   config {
+//     promptValues {
+//       packageName online.kehan.connect.campaign,
+//       nativeLanguage en
+//     },
+//     jhipsterVersion 6.9.0,
+//     applicationType microservice,
+//     baseName campaignService,
+//     packageName online.kehan.connect.campaign,
+//     packageFolder online/kehan/connect/campaign,
+//     serverPort 8005,
+//     authenticationType oauth2,
+//     cacheProvider redis,
+//     enableHibernateCache true,
+//     websocket false,
+//     databaseType sql,
+//     devDatabaseType postgresql,
+//     prodDatabaseType postgresql,
+//     searchEngine false,
+//     messageBroker false,
+//     serviceDiscoveryType eureka,
+//     buildTool maven,
+//     enableSwaggerCodegen false,
+//     jwtSecretKey MzIzNDQ3MzYyOGU3OTVlZTQxZjljZDFjYTI2N2I1MTk0ZmI2OTQ4MzU3MmM4YjEyZjMwNDZmYTU1ZGY0NTg3Mzk4YzA5MmViYjdhNGQxNDk1OGQwYzM0MmE3YzkwMGMyZGE1ZjRmMjVhMDlkODc3MDE1NmUwYjYzMmNhMzE4MWY=,
+//     embeddableLaunchScript false,
+//     creationTimestamp 1590127233872,
+//     testFrameworks [],
+//     jhiPrefix jhi,
+//     entitySuffix ,
+//     dtoSuffix DTO,
+//     otherModules [],
+//     enableTranslation true,
+//     clientPackageManager npm,
+//     nativeLanguage en,
+//     languages [en, zh-cn, zh-tw],
+//     blueprints [],
+//     skipClient true,
+//     skipUserManagement true
+//   }
+//   entities TemplateFlow, CampaignFlow, Intent, Event, Campaign, Recipient
+// }
+// entity Blog {
+//   name String required minlength(3),
+//   handle String required minlength(2)
+// }
+// entity Post {
+//   title String required,
+//   content TextBlob required,
+//   date Instant required
+// }
+// entity Tag {
+//   name String required minlength(2)
+// }
+// entity Product {
+//   title String required,
+//   price BigDecimal required min(0),
+//   image ImageBlob
+// }
+// relationship ManyToOne {
+//   Blog{user(login)} to User,
+//   Post{blog(name)} to Blog
+// }
+// relationship ManyToMany {
+//   Post{tag(name)} to Tag{post}
+// }
+paginate * with infinite-scroll
+paginate * with pagination
+service * with serviceClass
+microservice Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow with connectGateway
+microservice Campaign, CampaignFlow, ConnectConfig, ConnectEvent, ConnectIntent, Recipient, Reminder, ConnectState, TemplateFlow with analyticCollectionService
+// microservice Product with store
+// microservice Blog, Post, Tag with blog
+// will be created under 'docker-compose' folder
+deployment {
+  deploymentType docker-compose
+  appsFolders [connectGateway, analyticCollectionService]
+  dockerRepositoryName "sandyway"
+  consoleOptions [zipkin]
+}

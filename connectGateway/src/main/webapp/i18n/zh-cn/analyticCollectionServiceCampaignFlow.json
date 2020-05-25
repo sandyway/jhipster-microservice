@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceCampaignFlow": {
+      "home": {
+        "title": "Campaign Flows",
+        "createLabel": "创建新 Campaign Flow",
+        "createOrEditLabel": "创建或编辑 Campaign Flow",
+        "notFound": "No Campaign Flows found"
+      },
+      "delete": {
+        "question": "你确定要删除 Campaign Flow {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Campaign Flow"
+      },
+      "campaignId": "Campaign Id",
+      "templateFlowId": "Template Flow Id",
+      "createdDate": "Created Date",
+      "createdBy": "Created By"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceCampaignFlow": {
+      "created": "Campaign Flow {{ param }} 创建成功",
+      "updated": "Campaign Flow {{ param }} 更新成功",
+      "deleted": "Campaign Flow {{ param }} 删除成功"
+    }
+  }
+}

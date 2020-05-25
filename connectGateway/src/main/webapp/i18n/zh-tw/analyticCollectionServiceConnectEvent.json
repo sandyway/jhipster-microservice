@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceConnectEvent": {
+      "home": {
+        "title": "Connect Events",
+        "createLabel": "建立一筆新的 Connect Event",
+        "createOrEditLabel": "建立或編輯 Connect Event",
+        "notFound": "No Connect Events found"
+      },
+      "delete": {
+        "question": "您確定要刪除 Connect Event {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Connect Event"
+      },
+      "analyticId": "Analytic Id",
+      "connectEvent": "Connect Event",
+      "reference": "Reference",
+      "createdDate": "Created Date"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceConnectEvent": {
+      "created": "新的 Connect Event 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Connect Event 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Connect Event 刪除成功"
+    }
+  }
+}

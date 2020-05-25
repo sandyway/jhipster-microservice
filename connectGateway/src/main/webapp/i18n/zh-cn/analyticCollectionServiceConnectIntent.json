@@ -1,0 +1,35 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceConnectIntent": {
+      "home": {
+        "title": "Connect Intents",
+        "createLabel": "创建新 Connect Intent",
+        "createOrEditLabel": "创建或编辑 Connect Intent",
+        "notFound": "No Connect Intents found"
+      },
+      "delete": {
+        "question": "你确定要删除 Connect Intent {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Connect Intent"
+      },
+      "intentId": "Intent Id",
+      "flowId": "Flow Id",
+      "connectChannel": "Connect Channel",
+      "description": "Description",
+      "connectType": "Connect Type",
+      "messages": "Messages",
+      "reminder": "Reminder",
+      "createdDate": "Created Date",
+      "updatedDate": "Updated Date",
+      "createdBy": "Created By"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceConnectIntent": {
+      "created": "Connect Intent {{ param }} 创建成功",
+      "updated": "Connect Intent {{ param }} 更新成功",
+      "deleted": "Connect Intent {{ param }} 删除成功"
+    }
+  }
+}

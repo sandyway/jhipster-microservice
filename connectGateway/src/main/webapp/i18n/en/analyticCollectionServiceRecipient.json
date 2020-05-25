@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceRecipient": {
+      "home": {
+        "title": "Recipients",
+        "createLabel": "Create a new Recipient",
+        "createOrEditLabel": "Create or edit a Recipient",
+        "notFound": "No Recipients found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Recipient {{ id }}?"
+      },
+      "detail": {
+        "title": "Recipient"
+      },
+      "campaignId": "Campaign Id",
+      "ref": "Ref",
+      "connectDetails": "Connect Details",
+      "createdDate": "Created Date"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceRecipient": {
+      "created": "A new Recipient is created with identifier {{ param }}",
+      "updated": "A Recipient is updated with identifier {{ param }}",
+      "deleted": "A Recipient is deleted with identifier {{ param }}"
+    }
+  }
+}

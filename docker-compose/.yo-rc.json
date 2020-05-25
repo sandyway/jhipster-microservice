@@ -1,0 +1,15 @@
+{
+  "generator-jhipster": {
+    "deploymentType": "docker-compose",
+    "gatewayType": "zuul",
+    "monitoring": "no",
+    "directoryPath": "../",
+    "appsFolders": ["connectGateway", "analyticCollectionService"],
+    "clusteredDbApps": [],
+    "consoleOptions": [],
+    "serviceDiscoveryType": "eureka",
+    "dockerRepositoryName": "sandyway",
+    "dockerPushCommand": "docker push",
+    "jwtSecretKey": "NzhiYzRlMDJjNWJjNWFjZjc5NmUzNDgzZjliMjFmMmQwZTk3NmE5ZjNhZDk5Y2YxMzQyOWFiMWI4NjQ0YjlkNjhlNjFmMDA1OTJhOTQyZDliNzIzMmUxNTljOWFhOTBhYTY2MA=="
+  }
+}

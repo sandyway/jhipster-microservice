@@ -1,0 +1,35 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceConnectIntent": {
+      "home": {
+        "title": "Connect Intents",
+        "createLabel": "Create a new Connect Intent",
+        "createOrEditLabel": "Create or edit a Connect Intent",
+        "notFound": "No Connect Intents found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Connect Intent {{ id }}?"
+      },
+      "detail": {
+        "title": "Connect Intent"
+      },
+      "intentId": "Intent Id",
+      "flowId": "Flow Id",
+      "connectChannel": "Connect Channel",
+      "description": "Description",
+      "connectType": "Connect Type",
+      "messages": "Messages",
+      "reminder": "Reminder",
+      "createdDate": "Created Date",
+      "updatedDate": "Updated Date",
+      "createdBy": "Created By"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceConnectIntent": {
+      "created": "A new Connect Intent is created with identifier {{ param }}",
+      "updated": "A Connect Intent is updated with identifier {{ param }}",
+      "deleted": "A Connect Intent is deleted with identifier {{ param }}"
+    }
+  }
+}

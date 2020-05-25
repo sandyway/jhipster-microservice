@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceConnectConfig": {
+      "home": {
+        "title": "Connect Configs",
+        "createLabel": "Create a new Connect Config",
+        "createOrEditLabel": "Create or edit a Connect Config",
+        "notFound": "No Connect Configs found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Connect Config {{ id }}?"
+      },
+      "detail": {
+        "title": "Connect Config"
+      },
+      "userId": "User Id",
+      "facebook": "Facebook",
+      "viber": "Viber",
+      "createdDate": "Created Date"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceConnectConfig": {
+      "created": "A new Connect Config is created with identifier {{ param }}",
+      "updated": "A Connect Config is updated with identifier {{ param }}",
+      "deleted": "A Connect Config is deleted with identifier {{ param }}"
+    }
+  }
+}

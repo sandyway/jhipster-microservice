@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "analyticCollectionServiceConnectConfig": {
+      "home": {
+        "title": "Connect Configs",
+        "createLabel": "创建新 Connect Config",
+        "createOrEditLabel": "创建或编辑 Connect Config",
+        "notFound": "No Connect Configs found"
+      },
+      "delete": {
+        "question": "你确定要删除 Connect Config {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Connect Config"
+      },
+      "userId": "User Id",
+      "facebook": "Facebook",
+      "viber": "Viber",
+      "createdDate": "Created Date"
+    }
+  },
+  "analyticCollectionServiceApp": {
+    "analyticCollectionServiceConnectConfig": {
+      "created": "Connect Config {{ param }} 创建成功",
+      "updated": "Connect Config {{ param }} 更新成功",
+      "deleted": "Connect Config {{ param }} 删除成功"
+    }
+  }
+}
