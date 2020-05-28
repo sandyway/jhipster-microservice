@@ -19,7 +19,8 @@
     },
     {
       "fieldName": "channel",
-      "fieldType": "String",
+      "fieldType": "Channel",
+      "fieldValues": "SMS,MESSENGER,WHATSAPP",
       "fieldValidateRules": ["required"]
     },
     {
@@ -28,7 +29,8 @@
     },
     {
       "fieldName": "intentType",
-      "fieldType": "String"
+      "fieldType": "IntentTypes",
+      "fieldValues": "BROADCAST,START,OPTION,FALLBACK,EXPIRE,COMPLETE,PAYMENT"
     },
     {
       "fieldName": "connectEvent",
@@ -46,9 +48,9 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200525031046",
+  "changelogDate": "20200526005954",
   "entityTableName": "connect_state",
-  "dto": "no",
+  "dto": "mapstruct",
   "pagination": "pagination",
   "service": "serviceClass",
   "jpaMetamodelFiltering": false,
@@ -56,6 +58,6 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": ["connectGateway", "analyticCollectionService"],
-  "microserviceName": "analyticCollectionService"
+  "applications": ["connectGateway", "connectService"],
+  "microserviceName": "connectService"
 }

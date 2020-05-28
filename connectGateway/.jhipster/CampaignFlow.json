@@ -20,9 +20,9 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200525030346",
+  "changelogDate": "20200526005254",
   "entityTableName": "campaign_flow",
-  "dto": "no",
+  "dto": "mapstruct",
   "pagination": "pagination",
   "service": "serviceClass",
   "jpaMetamodelFiltering": false,
@@ -30,6 +30,6 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": ["connectGateway", "analyticCollectionService"],
-  "microserviceName": "analyticCollectionService"
+  "applications": ["connectGateway", "connectService"],
+  "microserviceName": "connectService"
 }

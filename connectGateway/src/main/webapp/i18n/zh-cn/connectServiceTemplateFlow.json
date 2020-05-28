@@ -1,0 +1,29 @@
+{
+  "connectGatewayApp": {
+    "connectServiceTemplateFlow": {
+      "home": {
+        "title": "Template Flows",
+        "createLabel": "创建新 Template Flow",
+        "createOrEditLabel": "创建或编辑 Template Flow",
+        "notFound": "No Template Flows found"
+      },
+      "delete": {
+        "question": "你确定要删除 Template Flow {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Template Flow"
+      },
+      "connectDetails": "Connect Details",
+      "userId": "User Id",
+      "createdBy": "Created By",
+      "createdDate": "Created Date"
+    }
+  },
+  "connectServiceApp": {
+    "connectServiceTemplateFlow": {
+      "created": "Template Flow {{ param }} 创建成功",
+      "updated": "Template Flow {{ param }} 更新成功",
+      "deleted": "Template Flow {{ param }} 删除成功"
+    }
+  }
+}

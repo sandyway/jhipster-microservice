@@ -9,11 +9,6 @@
     <name>connect</name>
     <modules>
         <module>connectGateway</module>
-        <module>analyticCollectionService</module>
-        <module>analyticQueryService</module>
-        <module>campaignService</module>
-        <module>connectorService</module>
-        <module>flowService</module>
-        <module>reminderService</module>
+        <module>connectService</module>
     </modules>
 </project>

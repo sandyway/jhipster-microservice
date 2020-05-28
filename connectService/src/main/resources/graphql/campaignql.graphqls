@@ -1,0 +1,74 @@
+type Query {
+	campaign(count: Int):[CampaignDTO]
+    # Get a campaign by id
+	campaignByID(id: ID!):CampaignDTO
+    # Get all campaigns of a user
+#    allCampaigns(
+#        limit: Int = 10
+#        page: Int = 1
+#        filter: String = ""
+#        orderBy: CampaignOrderBy = title_ASC
+#    ): allCampaignsResponse!
+}
+
+type Mutation {
+	createCampaign(campaignDetails: String!, CampaignType: String!, createdBy: String):CampaignDTO
+}
+
+enum CampaignOrderBy {
+    title_ASC
+    title_DESC
+    description_ASC
+    description_DESC
+    type_ASC
+    type_DESC
+    start_date_ASC
+    start_date_DESC
+    end_date_ASC
+    end_date_DESC
+}
+
+enum CampaignType {
+    ADHOC
+    BIRTHDAY
+    MEMBERSHIP_LAPSE
+    MEMBERSHIP_RENEWAL
+}
+
+type allCampaignsResponse {
+    campaigns: [CampaignDTO]!
+    totalCount: Int!
+}
+
+scalar Date
+
+type CampaignDTO {
+    id: ID!
+    #title: String!
+    campaignType: CampaignType!
+    createdBy: String!
+    #description: String
+    #recipientCount: Int
+    # dialogId: ID
+    # updatedBy: String
+    startDate: Date
+    endDate: Date
+    createdDate: Date
+    # channels: Channels
+    #messages: Messages
+}
+
+# # facebook messenger, viber etc
+# type Channels {
+#   messenger: Messenger
+# }
+
+# type Messenger {
+#   # ... add messenger configs
+# }
+
+# sms, email
+type Messages {
+    sms: String
+    # email: String
+}

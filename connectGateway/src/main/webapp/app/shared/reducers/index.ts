@@ -10,39 +10,39 @@ import userManagement, { UserManagementState } from './user-management';
 // prettier-ignore
 import campaign, {
   CampaignState
-} from 'app/entities/analyticCollectionService/campaign/campaign.reducer';
+} from 'app/entities/connectService/campaign/campaign.reducer';
 // prettier-ignore
 import campaignFlow, {
   CampaignFlowState
-} from 'app/entities/analyticCollectionService/campaign-flow/campaign-flow.reducer';
+} from 'app/entities/connectService/campaign-flow/campaign-flow.reducer';
 // prettier-ignore
 import connectConfig, {
   ConnectConfigState
-} from 'app/entities/analyticCollectionService/connect-config/connect-config.reducer';
+} from 'app/entities/connectService/connect-config/connect-config.reducer';
 // prettier-ignore
 import connectEvent, {
   ConnectEventState
-} from 'app/entities/analyticCollectionService/connect-event/connect-event.reducer';
+} from 'app/entities/connectService/connect-event/connect-event.reducer';
 // prettier-ignore
 import connectIntent, {
   ConnectIntentState
-} from 'app/entities/analyticCollectionService/connect-intent/connect-intent.reducer';
+} from 'app/entities/connectService/connect-intent/connect-intent.reducer';
 // prettier-ignore
 import recipient, {
   RecipientState
-} from 'app/entities/analyticCollectionService/recipient/recipient.reducer';
+} from 'app/entities/connectService/recipient/recipient.reducer';
 // prettier-ignore
 import reminder, {
   ReminderState
-} from 'app/entities/analyticCollectionService/reminder/reminder.reducer';
+} from 'app/entities/connectService/reminder/reminder.reducer';
 // prettier-ignore
 import connectState, {
   ConnectStateState
-} from 'app/entities/analyticCollectionService/connect-state/connect-state.reducer';
+} from 'app/entities/connectService/connect-state/connect-state.reducer';
 // prettier-ignore
 import templateFlow, {
   TemplateFlowState
-} from 'app/entities/analyticCollectionService/template-flow/template-flow.reducer';
+} from 'app/entities/connectService/template-flow/template-flow.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {

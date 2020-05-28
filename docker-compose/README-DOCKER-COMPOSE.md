@@ -14,18 +14,8 @@ Launch all your infrastructure by running: `docker-compose up -d`.
 
 - connectGateway (gateway application)
 - connectGateway's postgresql database
-- analyticCollectionService (microservice application)
-- analyticCollectionService's postgresql database
-- analyticQueryService (microservice application)
-- analyticQueryService's postgresql database
-- campaignService (microservice application)
-- campaignService's postgresql database
-- connectorService (microservice application)
-- connectorService's postgresql database
-- flowService (microservice application)
-- flowService's postgresql database
-- reminderService (microservice application)
-- reminderService's postgresql database
+- connectService (microservice application)
+- connectService's postgresql database
 
 ### Additional Services:
 

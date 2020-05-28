@@ -44,9 +44,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/connectGateway
-    username: connectGateway
-    password:
+    url: jdbc:postgresql://testserver:5432/connectGateway
+    username: admin
+    password: ILoveKH123
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -76,7 +76,7 @@ spring:
         enabled: true
 
 server:
-  port: 10000
+  port: 8000
 
 # ===================================================================
 # JHipster specific properties
@@ -95,7 +95,7 @@ jhipster:
   cache: # Cache configuration
     redis: # Redis configuration
       expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
-      server: redis://localhost:6379
+      server: redis://testserver:6379
       cluster: false
       # server: redis://localhost:6379,redis://localhost:16379,redis://localhost:26379
       # cluster: true
@@ -108,7 +108,7 @@ jhipster:
     allow-credentials: true
     max-age: 1800
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    base-url: http://127.0.0.1:10000
+    base-url: http://127.0.0.1:8000
   metrics:
     logs: # Reports metrics in the logs
       enabled: false

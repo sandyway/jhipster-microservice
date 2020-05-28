@@ -1,0 +1,10 @@
+{
+  "connectGatewayApp": {
+    "Channel": {
+      "null": "",
+      "SMS": "SMS",
+      "MESSENGER": "MESSENGER",
+      "WHATSAPP": "WHATSAPP"
+    }
+  }
+}

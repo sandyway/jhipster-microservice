@@ -1,0 +1,11 @@
+id;campaign_id;recipient_id;connect_details;channel;intent_id;intent_type;connect_event;created_date;updated_date
+1;Lights Guinea Central;emulation extend;../fake-data/blob/hipster.txt;SMS;methodology;FALLBACK;../fake-data/blob/hipster.txt;2020-05-24T18:46:27;2020-05-24T15:42:57
+2;red bypass Mouse;Hat Sharable Industrial;../fake-data/blob/hipster.txt;SMS;Developer;FALLBACK;../fake-data/blob/hipster.txt;2020-05-25T01:37:56;2020-05-24T20:01:41
+3;Intelligent internet solution;cross-platform revolutionize interactive;../fake-data/blob/hipster.txt;SMS;incubate ADP Total;BROADCAST;../fake-data/blob/hipster.txt;2020-05-24T14:36:13;2020-05-24T07:40:27
+4;Dynamic Internal;payment SMS;../fake-data/blob/hipster.txt;MESSENGER;Cheese connect exuding;PAYMENT;../fake-data/blob/hipster.txt;2020-05-24T03:36:36;2020-05-24T23:01:32
+5;Bacon Checking Account Human;olive interfaces;../fake-data/blob/hipster.txt;SMS;e-services;BROADCAST;../fake-data/blob/hipster.txt;2020-05-25T01:57:00;2020-05-24T15:41:10
+6;Turks and Caicos Islands asynchronous integrated;AI proactive Borders;../fake-data/blob/hipster.txt;WHATSAPP;program models;EXPIRE;../fake-data/blob/hipster.txt;2020-05-24T17:42:07;2020-05-24T18:17:00
+7;Principal concept;violet;../fake-data/blob/hipster.txt;WHATSAPP;extend Implementation;COMPLETE;../fake-data/blob/hipster.txt;2020-05-24T21:23:50;2020-05-24T17:20:26
+8;Generic Wooden Sausages Baby;National solutions Chief;../fake-data/blob/hipster.txt;MESSENGER;Practical;PAYMENT;../fake-data/blob/hipster.txt;2020-05-24T19:31:40;2020-05-24T20:13:32
+9;payment solutions California;Refined invoice;../fake-data/blob/hipster.txt;SMS;Response;OPTION;../fake-data/blob/hipster.txt;2020-05-24T07:56:52;2020-05-24T14:35:41
+10;Facilitator Auto Loan Account;HDD;../fake-data/blob/hipster.txt;SMS;bandwidth connecting;FALLBACK;../fake-data/blob/hipster.txt;2020-05-24T09:52:54;2020-05-25T01:28:43

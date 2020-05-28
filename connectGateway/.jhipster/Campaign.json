@@ -9,7 +9,8 @@
     },
     {
       "fieldName": "campaignType",
-      "fieldType": "String",
+      "fieldType": "CampaignType",
+      "fieldValues": "ADHOC,BIRTHDAY,MEMBERSHIP_LAPSE,MEMBERSHIP_RENEWAL",
       "fieldValidateRules": ["required"]
     },
     {
@@ -32,9 +33,9 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200525030246",
+  "changelogDate": "20200526005154",
   "entityTableName": "campaign",
-  "dto": "no",
+  "dto": "mapstruct",
   "pagination": "pagination",
   "service": "serviceClass",
   "jpaMetamodelFiltering": false,
@@ -42,6 +43,6 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": ["connectGateway", "analyticCollectionService"],
-  "microserviceName": "analyticCollectionService"
+  "applications": ["connectGateway", "connectService"],
+  "microserviceName": "connectService"
 }

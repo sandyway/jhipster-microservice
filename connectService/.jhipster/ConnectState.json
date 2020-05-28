@@ -1,0 +1,63 @@
+{
+  "name": "ConnectState",
+  "fields": [
+    {
+      "fieldName": "campaignId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "recipientId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "connectDetails",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "channel",
+      "fieldType": "Channel",
+      "fieldValues": "SMS,MESSENGER,WHATSAPP",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "intentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "intentType",
+      "fieldType": "IntentTypes",
+      "fieldValues": "BROADCAST,START,OPTION,FALLBACK,EXPIRE,COMPLETE,PAYMENT"
+    },
+    {
+      "fieldName": "connectEvent",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200525031046",
+  "entityTableName": "connect_state",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["connectGateway", "connectService"],
+  "microserviceName": "connectService"
+}

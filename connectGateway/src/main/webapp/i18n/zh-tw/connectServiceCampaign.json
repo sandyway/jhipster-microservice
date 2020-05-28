@@ -1,0 +1,31 @@
+{
+  "connectGatewayApp": {
+    "connectServiceCampaign": {
+      "home": {
+        "title": "Campaigns",
+        "createLabel": "建立一筆新的 Campaign",
+        "createOrEditLabel": "建立或編輯 Campaign",
+        "notFound": "No Campaigns found"
+      },
+      "delete": {
+        "question": "您確定要刪除 Campaign {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Campaign"
+      },
+      "campaignDetails": "Campaign Details",
+      "campaignType": "Campaign Type",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdBy": "Created By",
+      "createdDate": "Created Date"
+    }
+  },
+  "connectServiceApp": {
+    "connectServiceCampaign": {
+      "created": "新的 Campaign 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Campaign 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Campaign 刪除成功"
+    }
+  }
+}

@@ -4,15 +4,15 @@ import { Switch } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
-import Campaign from './analyticCollectionService/campaign';
-import CampaignFlow from './analyticCollectionService/campaign-flow';
-import ConnectConfig from './analyticCollectionService/connect-config';
-import ConnectEvent from './analyticCollectionService/connect-event';
-import ConnectIntent from './analyticCollectionService/connect-intent';
-import Recipient from './analyticCollectionService/recipient';
-import Reminder from './analyticCollectionService/reminder';
-import ConnectState from './analyticCollectionService/connect-state';
-import TemplateFlow from './analyticCollectionService/template-flow';
+import Campaign from './connectService/campaign';
+import CampaignFlow from './connectService/campaign-flow';
+import ConnectConfig from './connectService/connect-config';
+import ConnectEvent from './connectService/connect-event';
+import ConnectIntent from './connectService/connect-intent';
+import Recipient from './connectService/recipient';
+import Reminder from './connectService/reminder';
+import ConnectState from './connectService/connect-state';
+import TemplateFlow from './connectService/template-flow';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (

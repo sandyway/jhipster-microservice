@@ -18,7 +18,8 @@
     },
     {
       "fieldName": "channel",
-      "fieldType": "String",
+      "fieldType": "Channel",
+      "fieldValues": "SMS,MESSENGER,WHATSAPP",
       "fieldValidateRules": ["required"]
     },
     {
@@ -48,9 +49,9 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200525030946",
+  "changelogDate": "20200526005854",
   "entityTableName": "reminder",
-  "dto": "no",
+  "dto": "mapstruct",
   "pagination": "pagination",
   "service": "serviceClass",
   "jpaMetamodelFiltering": false,
@@ -58,6 +59,6 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": ["connectGateway", "analyticCollectionService"],
-  "microserviceName": "analyticCollectionService"
+  "applications": ["connectGateway", "connectService"],
+  "microserviceName": "connectService"
 }

@@ -1,0 +1,35 @@
+{
+  "connectGatewayApp": {
+    "connectServiceConnectIntent": {
+      "home": {
+        "title": "Connect Intents",
+        "createLabel": "建立一筆新的 Connect Intent",
+        "createOrEditLabel": "建立或編輯 Connect Intent",
+        "notFound": "No Connect Intents found"
+      },
+      "delete": {
+        "question": "您確定要刪除 Connect Intent {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Connect Intent"
+      },
+      "intentId": "Intent Id",
+      "flowId": "Flow Id",
+      "connectChannel": "Connect Channel",
+      "description": "Description",
+      "connectType": "Connect Type",
+      "messages": "Messages",
+      "reminder": "Reminder",
+      "createdDate": "Created Date",
+      "updatedDate": "Updated Date",
+      "createdBy": "Created By"
+    }
+  },
+  "connectServiceApp": {
+    "connectServiceConnectIntent": {
+      "created": "新的 Connect Intent 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Connect Intent 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Connect Intent 刪除成功"
+    }
+  }
+}

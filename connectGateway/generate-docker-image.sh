@@ -1,1 +1,0 @@
-./mvnw -ntp -Pprod verify jib:dockerBuild

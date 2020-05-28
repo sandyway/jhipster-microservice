@@ -22,9 +22,9 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200525030546",
+  "changelogDate": "20200526005454",
   "entityTableName": "connect_event",
-  "dto": "no",
+  "dto": "mapstruct",
   "pagination": "pagination",
   "service": "serviceClass",
   "jpaMetamodelFiltering": false,
@@ -32,6 +32,6 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": ["connectGateway", "analyticCollectionService"],
-  "microserviceName": "analyticCollectionService"
+  "applications": ["connectGateway", "connectService"],
+  "microserviceName": "connectService"
 }

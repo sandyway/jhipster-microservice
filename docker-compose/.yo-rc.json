@@ -4,19 +4,11 @@
     "gatewayType": "zuul",
     "monitoring": "no",
     "directoryPath": "../",
-    "appsFolders": [
-      "connectGateway",
-      "analyticCollectionService",
-      "analyticQueryService",
-      "campaignService",
-      "connectorService",
-      "flowService",
-      "reminderService"
-    ],
+    "appsFolders": ["connectGateway", "connectService"],
     "clusteredDbApps": [],
     "consoleOptions": [],
     "serviceDiscoveryType": "eureka",
-    "dockerRepositoryName": "sandyway",
+    "dockerRepositoryName": "kehanDev",
     "dockerPushCommand": "docker push",
     "jwtSecretKey": "NzhiYzRlMDJjNWJjNWFjZjc5NmUzNDgzZjliMjFmMmQwZTk3NmE5ZjNhZDk5Y2YxMzQyOWFiMWI4NjQ0YjlkNjhlNjFmMDA1OTJhOTQyZDliNzIzMmUxNTljOWFhOTBhYTY2MA=="
   }

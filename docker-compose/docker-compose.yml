@@ -8,146 +8,67 @@ services:
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
       - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
-      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://testserver:5432/connectGateway'
+      # - 'SPRING_DATASOURCE_URL=jdbc:postgresql://connectgateway-postgresql:5432/connectGateway'
+      # - 'JHIPSTER_CACHE_REDIS_SERVER=redis://connectgateway-redis:6379'
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.10.7:5432/connectGateway'
       - 'SPRING_DATASOURCE_USERNAME=admin'
       - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
-      - 'JHIPSTER_CACHE_REDIS_SERVER=redis://testserver:6379'
+      - 'JHIPSTER_CACHE_REDIS_SERVER=redis://192.168.10.7:6379'
       - JHIPSTER_CACHE_REDIS_CLUSTER=false
       - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=web_app
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=web_app
-      - JHIPSTER_SLEEP=1
+      - JHIPSTER_SLEEP=30
       - JHIPSTER_REGISTRY_PASSWORD=admin
     ports:
-      - '8080:10000'
-
-  # analyticcollectionservice:
-  #   image: analyticcollectionservice
-  #   environment:
-  #     - _JAVA_OPTIONS=-Xmx512m -Xms256m
-  #     - 'SPRING_PROFILES_ACTIVE=prod,swagger'
-  #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-  #     - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
-  #     - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
-  #     - 'SPRING_DATASOURCE_URL=jdbc:postgresql://testserver:5432/analyticCollectionService'
-  #     - 'SPRING_DATASOURCE_USERNAME=admin'
-  #     - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
-  #     - 'JHIPSTER_CACHE_REDIS_SERVER=redis://testserver:6379'
-  #     - JHIPSTER_CACHE_REDIS_CLUSTER=false
-  #     - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
-  #     - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
-  #     - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
-  #     - JHIPSTER_SLEEP=1
-  #     - JHIPSTER_REGISTRY_PASSWORD=admin
-
-  # analyticqueryservice:
-  #   image: analyticqueryservice
-  #   environment:
-  #     - _JAVA_OPTIONS=-Xmx512m -Xms256m
-  #     - 'SPRING_PROFILES_ACTIVE=prod,swagger'
-  #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-  #     - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
-  #     - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
-  #     - 'SPRING_DATASOURCE_URL=jdbc:postgresql://testserver:5432/analyticQueryService'
-  #     - 'SPRING_DATASOURCE_USERNAME=admin'
-  #     - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
-  #     - 'JHIPSTER_CACHE_REDIS_SERVER=redis://testserver:6379'
-  #     - JHIPSTER_CACHE_REDIS_CLUSTER=false
-  #     - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
-  #     - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
-  #     - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
-  #     - JHIPSTER_SLEEP=1
-  #     - JHIPSTER_REGISTRY_PASSWORD=admin
-
-  campaignservice:
-    image: campaignservice
-    environment:
-      - _JAVA_OPTIONS=-Xmx512m -Xms256m
-      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
-      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
-      - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
-      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://testserver:5432/campaignService'
-      - 'SPRING_DATASOURCE_USERNAME=admin'
-      - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
-      - 'JHIPSTER_CACHE_REDIS_SERVER=redis://testserver:6379'
-      - JHIPSTER_CACHE_REDIS_CLUSTER=false
-      - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
-      - JHIPSTER_SLEEP=1
-      - JHIPSTER_REGISTRY_PASSWORD=admin
-
-  connectorservice:
-    image: connectorservice
-    environment:
-      - _JAVA_OPTIONS=-Xmx512m -Xms256m
-      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
-      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
-      - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
-      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://testserver:5432/connectorService'
-      - 'SPRING_DATASOURCE_USERNAME=admin'
-      - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
-      - 'JHIPSTER_CACHE_REDIS_SERVER=redis://testserver:6379'
-      - JHIPSTER_CACHE_REDIS_CLUSTER=false
-      - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
-      - JHIPSTER_SLEEP=1
-      - JHIPSTER_REGISTRY_PASSWORD=admin
-
-  flowservice:
-    image: flowservice
-    environment:
-      - _JAVA_OPTIONS=-Xmx512m -Xms256m
-      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
-      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
-      - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
-      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://testserver:5432/flowService'
-      - 'SPRING_DATASOURCE_USERNAME=admin'
-      - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
-      - 'JHIPSTER_CACHE_REDIS_SERVER=redis://testserver:6379'
-      - JHIPSTER_CACHE_REDIS_CLUSTER=false
-      - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
-      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
-      - JHIPSTER_SLEEP=1
-      - JHIPSTER_REGISTRY_PASSWORD=admin
-
-  # reminderservice:
-  #   image: reminderservice
-  #   environment:
-  #     - _JAVA_OPTIONS=-Xmx512m -Xms256m
-  #     - 'SPRING_PROFILES_ACTIVE=prod,swagger'
-  #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-  #     - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
-  #     - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
-  #     - 'SPRING_DATASOURCE_URL=jdbc:postgresql://testserver:5432/reminderService'
-  #     - 'SPRING_DATASOURCE_USERNAME=admin'
-  #     - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
-  #     - 'JHIPSTER_CACHE_REDIS_SERVER=redis://testserver:6379'
-  #     - JHIPSTER_CACHE_REDIS_CLUSTER=false
-  #     - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
-  #     - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
-  #     - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
-  #     - JHIPSTER_SLEEP=1
-  #     - JHIPSTER_REGISTRY_PASSWORD=admin
-
-      # reminderservice-postgresql:
+      - '8080:8000'
+    depends_on: 
+      - "jhipster-registry"
+  # connectgateway-postgresql:
   #   image: 'postgres:12.1'
   #   environment:
-  #     - POSTGRES_USER=reminderService
+  #     - POSTGRES_USER=connectGateway
   #     - POSTGRES_PASSWORD=
-  # reminderservice-redis:
+  # connectgateway-redis:
   #   image: 'redis:5.0.9'
 
-  # jhipster-registry:
-  #   extends:
-  #     file: jhipster-registry.yml
-  #     service: jhipster-registry
-  # keycloak:
-  #   extends:
-  #     file: keycloak.yml
-  #     service: keycloak
+  connectservice:
+    image: connectservice
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+      - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+      # - 'SPRING_DATASOURCE_URL=jdbc:postgresql://connectservice-postgresql:5432/connectService'
+      # - 'JHIPSTER_CACHE_REDIS_SERVER=redis://connectservice-redis:6379'
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.10.7:5432/connectService'
+      - 'SPRING_DATASOURCE_USERNAME=admin'
+      - 'SPRING_DATASOURCE_PASSWORD=ILoveKH123'
+      - 'JHIPSTER_CACHE_REDIS_SERVER=redis://192.168.10.7:6379'
+      - JHIPSTER_CACHE_REDIS_CLUSTER=false
+      - 'SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster'
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
+      - JHIPSTER_SLEEP=30
+      - JHIPSTER_REGISTRY_PASSWORD=admin
+    depends_on: 
+      - "jhipster-registry"
+  # connectservice-postgresql:
+  #   image: 'postgres:12.1'
+  #   environment:
+  #     - POSTGRES_USER=connectService
+  #     - POSTGRES_PASSWORD=
+  # connectservice-redis:
+  #   image: 'redis:5.0.9'
+
+  jhipster-registry:
+    extends:
+      file: jhipster-registry.yml
+      service: jhipster-registry
+    depends_on: 
+      - "keycloak"
+  keycloak:
+    extends:
+      file: keycloak.yml
+      service: keycloak

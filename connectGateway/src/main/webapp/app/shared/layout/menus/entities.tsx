@@ -14,31 +14,31 @@ export const EntitiesMenu = props => (
     style={{ maxHeight: '80vh', overflow: 'auto' }}
   >
     <MenuItem icon="asterisk" to="/campaign">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceCampaign" />
+      <Translate contentKey="global.menu.entities.connectServiceCampaign" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/campaign-flow">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceCampaignFlow" />
+      <Translate contentKey="global.menu.entities.connectServiceCampaignFlow" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/connect-config">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceConnectConfig" />
+      <Translate contentKey="global.menu.entities.connectServiceConnectConfig" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/connect-event">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceConnectEvent" />
+      <Translate contentKey="global.menu.entities.connectServiceConnectEvent" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/connect-intent">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceConnectIntent" />
+      <Translate contentKey="global.menu.entities.connectServiceConnectIntent" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/recipient">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceRecipient" />
+      <Translate contentKey="global.menu.entities.connectServiceRecipient" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/reminder">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceReminder" />
+      <Translate contentKey="global.menu.entities.connectServiceReminder" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/connect-state">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceConnectState" />
+      <Translate contentKey="global.menu.entities.connectServiceConnectState" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/template-flow">
-      <Translate contentKey="global.menu.entities.analyticCollectionServiceTemplateFlow" />
+      <Translate contentKey="global.menu.entities.connectServiceTemplateFlow" />
     </MenuItem>
     {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
   </NavDropdown>

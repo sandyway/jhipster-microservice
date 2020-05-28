@@ -1,0 +1,34 @@
+{
+  "connectGatewayApp": {
+    "connectServiceConnectState": {
+      "home": {
+        "title": "Connect States",
+        "createLabel": "Create a new Connect State",
+        "createOrEditLabel": "Create or edit a Connect State",
+        "notFound": "No Connect States found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Connect State {{ id }}?"
+      },
+      "detail": {
+        "title": "Connect State"
+      },
+      "campaignId": "Campaign Id",
+      "recipientId": "Recipient Id",
+      "connectDetails": "Connect Details",
+      "channel": "Channel",
+      "intentId": "Intent Id",
+      "intentType": "Intent Type",
+      "connectEvent": "Connect Event",
+      "createdDate": "Created Date",
+      "updatedDate": "Updated Date"
+    }
+  },
+  "connectServiceApp": {
+    "connectServiceConnectState": {
+      "created": "A new Connect State is created with identifier {{ param }}",
+      "updated": "A Connect State is updated with identifier {{ param }}",
+      "deleted": "A Connect State is deleted with identifier {{ param }}"
+    }
+  }
+}
